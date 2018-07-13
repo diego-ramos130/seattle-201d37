@@ -60,15 +60,17 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+var sumab = a + b;
+var sumtotal = sumab + c;
 var arr = [];
-var total = sum(sum(a, b), c);
-arr.push(total);
-var multiplytotal = multiply(multiply(a, b), c);
-arr.push(multiplytotal);
-var msgSum = a + ' and ' + b + ' and ' + c + ' sum to ' + total + '.';
-arr.push(msgSum);
-var msgMultiply = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multiplytotal + '.';
-arr.push(msgMultiply);
+arr.push(sumtotal);
+var sumMsg = (a + ' and ' + b + ' and ' + c + ' sum to ' + sumtotal + '.')
+var multab = a * b; 
+var multotal = multab * c; 
+arr.push(multotal);
+var multMsg = ('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multotal + '.')
+arr.push(sumMsg);
+arr.push(multMsg);
 return arr;
 }
 
