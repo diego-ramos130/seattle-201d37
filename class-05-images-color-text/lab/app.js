@@ -60,22 +60,27 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-var sumab = a + b;
-var sumtotal = sumab + c;
-var arr = [];
-arr.push(sumtotal);
-var sumMsg = (a + ' and ' + b + ' and ' + c + ' sum to ' + sumtotal + '.')
-var multab = a * b; 
-var multotal = multab * c; 
-arr.push(multotal);
-var multMsg = ('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multotal + '.')
-arr.push(sumMsg);
-arr.push(multMsg);
+// the long way.
+/* var t1 = sum(a,b)[0];
+var total = sum(t1,c)[0];
+var t2 = multiply(a,b)[0];
+var product = multiply(t2,c)[0]; */
+//if this somehow works, i will fucking nut in my pants.
+//update: i have nutted.
+var total = sum(sum(a,b)[0],c)[0];
+var product = multiply(multiply(a,b)[0],c)[0];
+var arr = []; 
+arr.push(total);
+arr.push(product);
+var totalMsg = a + ' and ' + b + ' and ' + c + ' sum to ' + total + '.';
+arr.push(totalMsg);
+var productMsg = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
+arr.push(productMsg);
 return arr;
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
- testSumAndMultiply(4,7,5);
+// testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -93,12 +98,20 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-
+var sumtotal = 0;
+for (var i = 0; i < sumArr.length; i++){
+  sumtotal = sum(sumtotal, (sumArr[i] ))[0];
+}
+var arr = [];
+arr.push(sumtotal);
+var sumMsg = sumArr.join() + ' was passed in as an array of numbers, and ' + sumtotal + ' is their sum.';
+arr.push(sumMsg);
+return arr;
 }
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+ testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
