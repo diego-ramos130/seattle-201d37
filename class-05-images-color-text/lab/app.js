@@ -60,17 +60,21 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-var sumab = a + b;
-var sumtotal = sumab + c;
-var arr = [];
-arr.push(sumtotal);
-var sumMsg = (a + ' and ' + b + ' and ' + c + ' sum to ' + sumtotal + '.')
-var multab = a * b; 
-var multotal = multab * c; 
-arr.push(multotal);
-var multMsg = ('The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + multotal + '.')
-arr.push(sumMsg);
-arr.push(multMsg);
+// the long way.
+/* var t1 = sum(a,b)[0];
+var total = sum(t1,c)[0];
+var t2 = multiply(a,b)[0];
+var product = multiply(t2,c)[0]; */
+//if this somehow works, i will fucking nut in my pants.
+var total = sum(sum(a,b)[0],c)[0];
+var product = multiply(multiply(a,b)[0],c)[0];
+var arr = []; 
+arr.push(total);
+arr.push(product);
+var totalMsg = a + ' and ' + b + ' and ' + c + ' sum to ' + total + '.';
+arr.push(totalMsg);
+var productMsg = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + product + '.';
+arr.push(productMsg);
 return arr;
 }
 
@@ -93,7 +97,7 @@ Test this function by hand in the console to get it working, and when you think 
 var testArray = [2, 3, 4]; //eslint-disable-line
 
 function sumArray(sumArr) { //eslint-disable-line
-
+  
 }
 
 // Here is the test for sumArray(); uncomment it to run it
